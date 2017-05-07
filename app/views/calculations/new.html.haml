@@ -1,2 +1,9 @@
-%h1 Calculations#new
-%p Find me in app/views/calculations/new.html.haml
+%h1 New Calculation
+
+.row
+  .col-md-3
+    =form_tag(perform_calculations_path, method: :get) do
+      .form-group
+        =label_tag 'calculation[input]', 'Input', class: 'control-label'
+        =text_field_tag 'calculation[input]', 'Input', value: @calculation.input, class: 'form-control', autofocus: true
+      =submit_tag '=', class: 'btn btn-primary', title: 'Click here to perform the calculation.'
