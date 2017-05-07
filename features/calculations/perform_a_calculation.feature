@@ -9,3 +9,4 @@ Feature: Perform a calculation
     When I fill in "Input" with "5*3+1+6/2+9*100"
     And I click "="
     Then I should see "919" within the result area
+    And I should see "5*3+1+6/2+9*100" within the equation area
