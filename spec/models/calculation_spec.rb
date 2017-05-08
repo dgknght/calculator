@@ -29,5 +29,12 @@ RSpec.describe Calculation do
         expect(calculation.perform).to eq 916.07
       end
     end
+
+    context 'given "10/2*5"' do
+      it 'returns 25' do
+        calculation = Calculation.new input: '10/2*5'
+        expect(calculation.perform).to eq 25
+      end
+    end
   end
 end

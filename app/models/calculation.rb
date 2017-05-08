@@ -9,7 +9,7 @@ class Calculation
 
   NUMBER_REGEX = /\A\s*[0-9\.]+\s*\z/
   OPERATION_REGEX = /\A\s*([0-9\.]+)\s*(\+|\-|\*|\/)\s*(.*)/
-  OPERATORS = %w(* / + -)
+  OPERATORS = [['*', '/'], ['+', '-']]
   DEFAULT_OPTIONS = {places: 2}
 
   attr_accessor :input
@@ -20,9 +20,9 @@ class Calculation
 
   def perform(options = {})
     options = DEFAULT_OPTIONS.merge(options)
-    result = OPERATORS.reduce(parsed_input) do |input, operator|
+    result = OPERATORS.reduce(parsed_input) do |input, operators|
       if input.is_a? Array
-        process_operator(input, operator)
+        process_operators(input, operators)
       else
         input
       end
@@ -50,8 +50,8 @@ class Calculation
 
   # calculate all operations of the specified type
   # replacing the segements in the input with the result
-  def process_operator(input, operator)
-    while (index = input.index(operator)) do
+  def process_operators(input, operators)
+    while (index = input.index{|v| operators.include?(v)}) do
       segment = input[(index-1)..(index+1)]
       result = segment[0].send(segment[1], segment[2])
       return result if input.length == 3 # last operation
