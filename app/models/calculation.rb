@@ -1,3 +1,10 @@
+# Takes an operation string, parses and executes it.
+#
+# This implementation uses a simple array to hold
+# the parsed equation. If the requirements were more complex,
+# e.g., if it was necessary to support parentheses, I would
+# probably choose the parse the equation into a tree of some
+# sort.
 class Calculation
 
   NUMBER_REGEX = /\A\s*[0-9\.]+\s*\z/
