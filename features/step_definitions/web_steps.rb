@@ -7,7 +7,7 @@ When /^I fill in "([^"]+)" with "([^"]+)"$/ do |locator, value|
 end
 
 When /^I click "([^"]+)"$/ do |locator|
-  all(locator).click
+  click_on locator
 end
 
 Then /^I should see "([^"]+)"$/ do |value|

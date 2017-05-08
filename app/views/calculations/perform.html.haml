@@ -7,8 +7,8 @@
         %th Input
         %th Result
       %tr
-        %td= @calculation.input
-        %td= @calculation.perform
+        %td.input= @calculation.input
+        %td.result= @calculation.perform
 .row
   .col-md-3
     =link_to 'Again', new_calculation_path, class: 'btn btn-primary', title: 'Click here for another calculation.'

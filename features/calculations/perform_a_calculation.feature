@@ -1,4 +1,3 @@
-@wip
 Feature: Perform a calculation
   As a user
   In order to find the result of a mathematical operation
@@ -7,6 +6,6 @@ Feature: Perform a calculation
   Scenario: A user requests a math operation be performed
     Given I am on the calculator page
     When I fill in "Input" with "5*3+1+6/2+9*100"
-    And I click "="
+    And I click "Go"
     Then I should see "919" within the result area
-    And I should see "5*3+1+6/2+9*100" within the equation area
+    And I should see "5*3+1+6/2+9*100" within the input area
